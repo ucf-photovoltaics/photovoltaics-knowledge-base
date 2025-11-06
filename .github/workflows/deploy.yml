@@ -1,4 +1,4 @@
-name: Deploy Jupyter Book
+name: Deploy Jupyter Book 
 
 on:
   # Trigger the workflow on pushes to the main branch
