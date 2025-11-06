@@ -22,7 +22,5 @@ html:
 sphinx:
   config:
     bibtex_reference_style: author_year
-    bibtex_bibfiles:
-      - content/_bibliography.bib
   extra_extensions:
     - sphinx_bibtex
