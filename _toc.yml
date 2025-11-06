@@ -2,5 +2,5 @@
 format: jb-book
 root: content/example_notebook.ipynb
 sections:
-  - file: content/chapter1  # <-- Add this line
-  - file: content/my-new-topic # <-- And this one
+  # - file: content/chapter1  # <-- Add this line
+  # - file: content/my-new-topic # <-- And this one
