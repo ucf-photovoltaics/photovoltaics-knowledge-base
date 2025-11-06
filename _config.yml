@@ -20,7 +20,6 @@ html:
 
 # Enable BibTeX citations
 sphinx:
-  config:
-    bibtex_reference_style: author_year
+  config: {}
   extra_extensions:
     - sphinxcontrib.bibtex
