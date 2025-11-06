@@ -1,1 +1,107 @@
+My Jupyter Book Project
 
+This is a starter template for building a website from Jupyter Notebooks, complete with LaTeX/BibTeX support and PDF output, deployed automatically using GitHub Actions.
+
+This project is built using Jupyter Book.
+
+Project Structure
+
+.
+├── .github/workflows/deploy.yml  # GitHub Action for auto-deployment
+├── content/                     # Your book's content
+│   ├── _bibliography.bib        # Your BibTeX citation file
+│   └── notebook1.ipynb          # A sample notebook
+├── _config.yml                  # Main configuration file
+├── _toc.yml                     # Table of Contents (site navigation)
+├── README.md                    # This file
+└── requirements.txt             # Python dependencies
+
+
+How to Use This Template
+
+1. Local Setup (Optional, but Recommended)
+
+You can build and preview the website on your local machine before pushing it to GitHub.
+
+Prerequisites:
+
+Python 3.8+
+
+A LaTeX distribution (like TeX Live or MiKTeX) is required only if you want to build PDFs locally.
+
+Installation:
+
+Create and activate a virtual environment (recommended):
+
+python -m venv .venv
+source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
+
+
+Install the required packages:
+
+pip install -r requirements.txt
+
+
+2. Add Your Content
+
+Add Notebooks/Markdown: Place your .ipynb and .md files inside the content/ directory.
+
+Update Table of Contents: Edit _toc.yml to reflect your site's structure.
+
+Add Citations: Add your BibTeX entries to content/_bibliography.bib.
+
+Cite in Notebooks: In any Markdown cell, you can use:
+
+LaTeX equations: $E = mc^2$ (inline) or $$...$$ (display).
+
+Citations: {cite}`einstein1905` (or whatever your BibTeX key is).
+
+3. Build Your Book Locally
+
+Build the HTML Website:
+
+Run this command from the project's root directory:
+
+jupyter-book build .
+
+
+The website will be generated in the _build/html/ directory. You can open the _build/html/index.html file in your browser to see it.
+
+Build the PDF Manuscript:
+
+Ensure you have a full LaTeX distribution installed.
+
+jupyter-book build . --builder pdflatex
+
+
+The PDF will be generated in the _build/latex/ directory (e.g., book.pdf).
+
+4. GitHub Deployment (Automatic)
+
+This template is configured to build and deploy your website automatically using GitHub Actions and GitHub Pages.
+
+Setup Steps:
+
+Create a GitHub Repository: Create a new repository on GitHub and push these files to it (on the main branch).
+
+Enable GitHub Pages:
+
+Go to your repository's Settings tab.
+
+In the left sidebar, click on Pages.
+
+Under "Build and deployment", set the Source to GitHub Actions.
+
+That's it! Now, every time you push a change to your main branch, the GitHub Action defined in .github/workflows/deploy.yml will automatically:
+
+Check out your code.
+
+Install the Python dependencies.
+
+Build the HTML version of your Jupyter Book.
+
+Push the built website to a special branch called gh-pages.
+
+GitHub Pages will serve your site from that gh-pages branch.
+
+Your website will be available at https://ucf-photovoltaics.github.io/photovoltaics-knowledge-base/.
