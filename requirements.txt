@@ -1,2 +1,2 @@
 jupyter-book
-sphinx-bibtex
+sphinxcontrib-bibtex
