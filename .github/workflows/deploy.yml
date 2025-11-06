@@ -1,12 +1,13 @@
-name: Deploy Jupyter Book
+# This workflow is based on the jupyter-book template:
+# https://github.com/executablebooks/cookiecutter-jupyter-book/blob/master/%7B%7Bcookiecutter.repo_name%7D%7D/.github/workflows/deploy.yml
 
+name: Build and Deploy Jupyter Book
+
+# Run this workflow every time a new commit is pushed to the main branch
 on:
-  # Trigger the workflow on pushes to the main branch
   push:
     branches:
       - main
-  # Allow running the workflow manually from the Actions tab
-  workflow_dispatch:
 
 # Grant GITHUB_TOKEN permissions to deploy to GitHub Pages
 permissions:
@@ -14,36 +15,41 @@ permissions:
   pages: write
   id-token: write
 
+# Deploy to GitHub Pages
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10' # You can change this version
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+          python-version: "3.10"
 
       - name: Build the Jupyter Book
         run: |
-          jupyter-book build .
+          pip install -r requirements.txt
+          # Use --all to force a clean build
+          jupyter-book build . --all
 
-      - name: List files in workspace
+      - name: List files in workspace (for debugging)
         run: |
           echo "--- Listing all files in the current directory ---"
           ls -laR
           echo "--- End of file listing ---"
 
-      - name: Setup GitHub Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload GitHub Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: _build/html
