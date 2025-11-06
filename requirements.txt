@@ -1,4 +1,2 @@
-Requirements for building the Jupyter Book
-
 jupyter-book
 sphinx-bibtex
