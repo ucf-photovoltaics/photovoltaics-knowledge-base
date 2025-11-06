@@ -23,4 +23,4 @@ sphinx:
   config:
     bibtex_reference_style: author_year
   extra_extensions:
-    - sphinx_bibtex
+    - sphinxcontrib.bibtex
