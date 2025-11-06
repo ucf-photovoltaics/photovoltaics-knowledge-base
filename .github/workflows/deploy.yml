@@ -1,4 +1,4 @@
-name: Deploy Jupyter Book 
+name: Deploy Jupyter Book
 
 on:
   # Trigger the workflow on pushes to the main branch
@@ -33,6 +33,12 @@ jobs:
       - name: Build the Jupyter Book
         run: |
           jupyter-book build .
+
+      - name: List files in workspace
+        run: |
+          echo "--- Listing all files in the current directory ---"
+          ls -laR
+          echo "--- End of file listing ---"
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
