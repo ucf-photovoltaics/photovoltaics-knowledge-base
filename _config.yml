@@ -20,7 +20,7 @@ html:
 
 # Enable BibTeX citations
 sphinx:
-  config
+  config:
     bibtex_bibfiles:
       - content/_bibliography.bib
   extra_extensions:
