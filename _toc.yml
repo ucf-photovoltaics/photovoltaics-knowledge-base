@@ -1,6 +1,6 @@
 # _toc.yml
 format: jb-book
-root: content/example_notebook.ipynb
+root: content/example_notebook
 sections:
   # - file: content/chapter1  # <-- Add this line
   # - file: content/my-new-topic # <-- And this one
