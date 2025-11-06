@@ -1,0 +1,28 @@
+# Book settings
+title: A Photovoltaics Knowledge Base # The title of the book
+author: UCF-DPV # The author of the book
+logo: "" # A path to the book logo
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the build environment
+repository:
+  url: https://github.com/ucf-photovoltaics/photovoltaics-knowledge-base # URL of your repository
+  branch: main # Which branch to use
+
+# Add GitHub buttons to your pages
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+# Enable BibTeX citations
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+    bibtex_bibfiles:
+      - content/_bibliography.bib
+  extra_extensions:
+    - sphinx_bibtex
